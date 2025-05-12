@@ -38,10 +38,11 @@ fun DetalleAnimalScreen(navController: NavController, animalId: String) {
 
 @Composable
 fun DetalleAnimalContent(animal: Animal) {
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .padding(16.dp)) {
-
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
         Text(animal.name, style = MaterialTheme.typography.headlineSmall)
         Spacer(modifier = Modifier.height(8.dp))
 
@@ -56,25 +57,29 @@ fun DetalleAnimalContent(animal: Animal) {
         Spacer(modifier = Modifier.height(8.dp))
         Text(animal.description)
 
-        Spacer(modifier = Modifier.height(16.dp))
-        Text("Galería", style = MaterialTheme.typography.titleMedium)
-        LazyRow {
-            items(animal.gallery) { imageUrl ->
-                Image(
-                    painter = rememberAsyncImagePainter(imageUrl),
-                    contentDescription = "Galería",
-                    modifier = Modifier
-                        .padding(8.dp)
-                        .size(120.dp)
-                )
+        if (animal.gallery.isNotEmpty()) {
+            Spacer(modifier = Modifier.height(16.dp))
+            Text("Galería", style = MaterialTheme.typography.titleMedium)
+            LazyRow {
+                items(animal.gallery) { imageUrl ->
+                    Image(
+                        painter = rememberAsyncImagePainter(imageUrl),
+                        contentDescription = "Imagen de galería",
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(120.dp)
+                    )
+                }
             }
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
-        Text("Hechos Interesantes", style = MaterialTheme.typography.titleMedium)
-        Spacer(modifier = Modifier.height(8.dp))
-        animal.facts.forEach { fact ->
-            Text("• $fact", modifier = Modifier.padding(bottom = 4.dp))
+        if (animal.facts.isNotEmpty()) {
+            Spacer(modifier = Modifier.height(16.dp))
+            Text("Hechos Interesantes", style = MaterialTheme.typography.titleMedium)
+            Spacer(modifier = Modifier.height(8.dp))
+            animal.facts.forEach { fact ->
+                Text("• $fact", modifier = Modifier.padding(bottom = 4.dp))
+            }
         }
     }
 }
