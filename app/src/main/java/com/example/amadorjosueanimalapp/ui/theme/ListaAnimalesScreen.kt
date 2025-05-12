@@ -41,7 +41,8 @@ fun ListaAnimalesScreen(navController: NavController) {
             item {
                 EncabezadoSeccion(
                     titulo = "Animales",
-                    subtitulo = "Lista de especies disponibles"
+                    subtitulo = "Lista de especies disponibles",
+                    tipo = "animales"
                 )
             }
             items(animales) { animal ->

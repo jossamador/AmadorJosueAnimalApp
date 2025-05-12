@@ -41,7 +41,8 @@ fun ListaAmbienteScreen(navController: NavController) {
             item {
                 EncabezadoSeccion(
                     titulo = "Ambientes",
-                    subtitulo = "Explora los hábitats de los animales"
+                    subtitulo = "Explora los hábitats de los animales",
+                    tipo = "ambientes"
                 )
             }
             items(ambientes) { ambiente ->

@@ -1,11 +1,12 @@
 package com.example.amadorjosueanimalapp.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -15,46 +16,76 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun EncabezadoSeccion(titulo: String, subtitulo: String) {
+fun EncabezadoSeccion(
+    titulo: String,
+    subtitulo: String,
+    tipo: String
+) {
+    val (colorInicio, colorFin, botonColor, textoColor, bordeColor) = when (tipo) {
+        "animales" -> listOf(
+            Color(0xFF4FC3F7), Color(0xFF1976D2),
+            Color(0xFFBBDEFB), Color.Black, Color.Black
+        )
+        "ambientes" -> listOf(
+            Color(0xFF81C784), Color(0xFF388E3C),
+            Color(0xFFD0F0C0), Color.Black, Color.Black
+        )
+        else -> listOf(
+            Color.Gray, Color.DarkGray,
+            Color.LightGray, Color.Black, Color.Black
+        )
+    }
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(120.dp)
+            .height(160.dp)
             .background(
-                brush = Brush.horizontalGradient(
-                    colors = listOf(Color(0xFF2196F3), Color(0xFF64B5F6))
+                brush = Brush.verticalGradient(
+                    colors = listOf(colorInicio, colorFin)
                 )
             )
-            .padding(horizontal = 16.dp, vertical = 8.dp)
+            .padding(horizontal = 16.dp, vertical = 20.dp)
     ) {
         Column(
-            modifier = Modifier.align(Alignment.CenterStart)
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.SpaceBetween
         ) {
-            Text(
-                text = titulo,
-                style = MaterialTheme.typography.headlineMedium.copy(color = Color.White)
-            )
-            Text(
-                text = subtitulo,
-                style = MaterialTheme.typography.bodyMedium.copy(color = Color.White.copy(alpha = 0.8f), fontSize = 14.sp)
-            )
-        }
+            Column {
+                Text(
+                    text = titulo,
+                    style = MaterialTheme.typography.headlineMedium.copy(color = Color.White)
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = subtitulo,
+                    fontSize = 16.sp,
+                    color = Color.White
+                )
+            }
 
-        OutlinedButton(
-            onClick = { /* Acción no funcional */ },
-            colors = ButtonDefaults.outlinedButtonColors(
-                containerColor = Color.White.copy(alpha = 0.4f),
-                contentColor = Color.Black
-            ),
-            shape = RoundedCornerShape(20.dp),
-            border = ButtonDefaults.outlinedButtonBorder,
-            modifier = Modifier
-                .align(Alignment.CenterEnd)
-                .height(40.dp)
-        ) {
-            Icon(Icons.Default.Add, contentDescription = "Agregar")
-            Spacer(modifier = Modifier.width(4.dp))
-            Text("Agregar")
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End
+            ) {
+                Button(
+                    onClick = { /* sin funcionalidad */ },
+                    colors = ButtonDefaults.buttonColors(containerColor = botonColor),
+                    shape = RoundedCornerShape(50),
+                    modifier = Modifier
+                        .height(45.dp)
+                        .defaultMinSize(minWidth = 130.dp)
+                        .border(2.dp, bordeColor, RoundedCornerShape(50))
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Add,
+                        contentDescription = "Agregar",
+                        tint = textoColor
+                    )
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Text("Agregar", color = textoColor)
+                }
+            }
         }
     }
 }
