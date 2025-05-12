@@ -13,9 +13,10 @@ object AnimalRepository {
                 id = "1",
                 name = "Tigre",
                 description = "El tigre es el felino más grande del mundo.",
-                image = "https://upload.wikimedia.org/wikipedia/commons/5/56/Tiger.50.jpg",
+                image = "https://images.pexels.com/photos/23540962/pexels-photo-23540962.jpeg",
                 gallery = listOf(
-                    "https://upload.wikimedia.org/wikipedia/commons/e/e8/Tiger_in_Ranthambhore.jpg"
+                    "https://images.pexels.com/photos/2055100/pexels-photo-2055100.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    "https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg"
                 ),
                 facts = listOf("Puede pesar hasta 300 kg.", "Gran nadador."),
                 environment = "selva"
@@ -24,8 +25,11 @@ object AnimalRepository {
                 id = "2",
                 name = "Camello",
                 description = "Adaptado al clima seco del desierto.",
-                image = "https://upload.wikimedia.org/wikipedia/commons/7/7a/Camel_01.jpg",
-                gallery = listOf(),
+                image = "https://images.pexels.com/photos/133395/pexels-photo-133395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+                gallery = listOf(
+                    "https://images.pexels.com/photos/815883/pexels-photo-815883.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    "https://images.pexels.com/photos/1915950/pexels-photo-1915950.jpeg?auto=compress&cs=tinysrgb&w=800"
+                ),
                 facts = listOf("Puede pasar días sin agua.", "Tiene jorobas."),
                 environment = "desierto"
             ),
@@ -33,8 +37,11 @@ object AnimalRepository {
                 id = "3",
                 name = "Delfín",
                 description = "Mamífero marino inteligente y social.",
-                image = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Common_dolphin_noaa.jpg",
-                gallery = listOf(),
+                image = "https://images.pexels.com/photos/1986374/pexels-photo-1986374.jpeg?auto=compress&cs=tinysrgb&w=800",
+                gallery = listOf(
+                    "https://images.pexels.com/photos/9406883/pexels-photo-9406883.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    "https://images.pexels.com/photos/64219/dolphin-marine-mammals-water-sea-64219.jpeg?auto=compress&cs=tinysrgb&w=800"
+                ),
                 facts = listOf("Usa ecolocalización.", "Nada en grupos."),
                 environment = "oceano"
             ),
@@ -42,8 +49,11 @@ object AnimalRepository {
                 id = "4",
                 name = "Águila real",
                 description = "Ave rapaz de gran tamaño.",
-                image = "https://upload.wikimedia.org/wikipedia/commons/4/4e/Aquila_chrysaetos.jpg",
-                gallery = listOf(),
+                image = "https://images.pexels.com/photos/18865652/pexels-photo-18865652/free-photo-of-aguila-calva-junto-al-tronco-de-un-arbol.jpeg?auto=compress&cs=tinysrgb&w=800",
+                gallery = listOf(
+                    "https://images.pexels.com/photos/1905590/pexels-photo-1905590.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    "https://images.pexels.com/photos/16868735/pexels-photo-16868735/free-photo-of-naturaleza-aguila-retrato-fotografia-de-animales.jpeg?auto=compress&cs=tinysrgb&w=800"
+                ),
                 facts = listOf("Gran vista.", "Caza desde el aire."),
                 environment = "montana"
             ),
@@ -51,8 +61,11 @@ object AnimalRepository {
                 id = "5",
                 name = "Pingüino emperador",
                 description = "Ave marina que no vuela, adaptada al frío.",
-                image = "https://upload.wikimedia.org/wikipedia/commons/9/95/Emperor_Penguin_with_chick.jpg",
-                gallery = listOf(),
+                image = "https://images.pexels.com/photos/20439546/pexels-photo-20439546.jpeg",
+                gallery = listOf(
+                    "https://images.pexels.com/photos/641283/pexels-photo-641283.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    "https://images.pexels.com/photos/31293895/pexels-photo-31293895/free-photo-of-majestuoso-pinguino-emperador-en-un-paisaje-nevado.jpeg?auto=compress&cs=tinysrgb&w=800"
+                ),
                 facts = listOf("Puede nadar grandes distancias.", "Vive en colonias."),
                 environment = "polo"
             ),
@@ -60,8 +73,11 @@ object AnimalRepository {
                 id = "6",
                 name = "Zorro ártico",
                 description = "Mamífero adaptado al clima polar.",
-                image = "https://upload.wikimedia.org/wikipedia/commons/1/1b/Alopex_lagopus.jpg",
-                gallery = listOf(),
+                image = "https://images.pexels.com/photos/27067817/pexels-photo-27067817/free-photo-of-mullido-fotografia-de-animales-fotografia-de-vida-salvaje-suave.jpeg?auto=compress&cs=tinysrgb&w=800",
+                gallery = listOf(
+                    "https://images.pexels.com/photos/11251669/pexels-photo-11251669.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    "https://images.pexels.com/photos/26690472/pexels-photo-26690472/free-photo-of-carretera-naturaleza-rural-fotografia-de-animales.jpeg?auto=compress&cs=tinysrgb&w=800"
+                ),
                 facts = listOf("Su pelaje cambia según la estación.", "Gran cazador de roedores."),
                 environment = "tundra"
             ),
@@ -69,8 +85,11 @@ object AnimalRepository {
                 id = "7",
                 name = "Cocodrilo del Nilo",
                 description = "Reptil semiacuático muy antiguo.",
-                image = "https://upload.wikimedia.org/wikipedia/commons/4/4f/NileCrocodile.jpg",
-                gallery = listOf(),
+                image = "https://images.pexels.com/photos/20736535/pexels-photo-20736535.jpeg",
+                gallery = listOf(
+                    "https://images.pexels.com/photos/31963715/pexels-photo-31963715/free-photo-of-vista-aerea-de-cocodrilos-en-la-orilla-del-rio-en-zambia.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    "https://images.pexels.com/photos/789331/pexels-photo-789331.jpeg?auto=compress&cs=tinysrgb&w=800"
+                ),
                 facts = listOf("Puede medir más de 5 metros.", "Caza al acecho."),
                 environment = "pantano"
             ),
@@ -78,8 +97,11 @@ object AnimalRepository {
                 id = "8",
                 name = "Panda gigante",
                 description = "Mamífero herbívoro conocido por su dieta de bambú.",
-                image = "https://upload.wikimedia.org/wikipedia/commons/0/0f/Grosser_Panda.JPG",
-                gallery = listOf(),
+                image = "https://images.pexels.com/photos/29480533/pexels-photo-29480533.jpeg",
+                gallery = listOf(
+                    "https://images.pexels.com/photos/30366935/pexels-photo-30366935.jpeg",
+                    "https://images.pexels.com/photos/29088370/pexels-photo-29088370.jpeg"
+                ),
                 facts = listOf("Habita bosques de bambú en China.", "Está en peligro de extinción."),
                 environment = "bosque"
             )
@@ -93,49 +115,49 @@ object AnimalRepository {
                 id = "selva",
                 name = "Selva",
                 description = "Ambiente tropical con gran biodiversidad.",
-                image = "https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Rainforest.jpg"
+                image = "https://images.pexels.com/photos/1928279/pexels-photo-1928279.jpeg?auto=compress&cs=tinysrgb&w=800"
             ),
             Ambiente(
                 id = "desierto",
                 name = "Desierto",
                 description = "Región árida con temperaturas extremas.",
-                image = "https://upload.wikimedia.org/wikipedia/commons/6/6b/Sahara_Desert_%282310864845%29.jpg"
+                image = "https://images.pexels.com/photos/30478414/pexels-photo-30478414.jpeg?auto=compress&cs=tinysrgb&w=800"
             ),
             Ambiente(
                 id = "oceano",
                 name = "Océano",
                 description = "Inmensa masa de agua salada que cubre el 70% del planeta.",
-                image = "https://upload.wikimedia.org/wikipedia/commons/4/4e/Pacific_Ocean_%2824873064327%29.jpg"
+                image = "https://images.pexels.com/photos/31980247/pexels-photo-31980247/free-photo-of-impresionante-puesta-de-sol-sobre-el-horizonte-oceanico-de-melbourne.jpeg?auto=compress&cs=tinysrgb&w=800"
             ),
             Ambiente(
                 id = "montana",
                 name = "Montaña",
                 description = "Zona elevada con clima frío y aire delgado.",
-                image = "https://upload.wikimedia.org/wikipedia/commons/f/f6/Himalayas.jpg"
+                image = "https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=800"
             ),
             Ambiente(
                 id = "polo",
                 name = "Polo",
                 description = "Ambiente helado, hogar de especies adaptadas al frío extremo.",
-                image = "https://upload.wikimedia.org/wikipedia/commons/9/9e/Antarctica.jpg"
+                image = "https://images.pexels.com/photos/16144193/pexels-photo-16144193/free-photo-of-resfriado-frio-glaciar-nieve.jpeg?auto=compress&cs=tinysrgb&w=800"
             ),
             Ambiente(
                 id = "tundra",
                 name = "Tundra",
                 description = "Bioma frío con vegetación baja y suelos helados.",
-                image = "https://upload.wikimedia.org/wikipedia/commons/3/3e/Tundra_in_Siberia.jpg"
+                image = "https://images.pexels.com/photos/2563282/pexels-photo-2563282.jpeg?auto=compress&cs=tinysrgb&w=800"
             ),
             Ambiente(
                 id = "pantano",
                 name = "Pantano",
                 description = "Zona húmeda con aguas estancadas y vegetación densa.",
-                image = "https://upload.wikimedia.org/wikipedia/commons/f/fb/Everglades.jpg"
+                image = "https://images.pexels.com/photos/31996011/pexels-photo-31996011.jpeg?auto=compress&cs=tinysrgb&w=800"
             ),
             Ambiente(
                 id = "bosque",
                 name = "Bosque",
                 description = "Región densa con árboles, hogar de muchas especies.",
-                image = "https://upload.wikimedia.org/wikipedia/commons/a/a5/Black_Forest_-_Germany.jpg"
+                image = "https://images.pexels.com/photos/338936/pexels-photo-338936.jpeg?auto=compress&cs=tinysrgb&w=800"
             )
         )
     }
