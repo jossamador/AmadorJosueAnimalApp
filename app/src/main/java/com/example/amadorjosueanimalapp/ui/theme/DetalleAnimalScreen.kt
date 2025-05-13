@@ -1,13 +1,19 @@
 package com.example.amadorjosueanimalapp.ui.theme
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
@@ -20,65 +26,74 @@ fun DetalleAnimalScreen(navController: NavController, animalId: String) {
     val coroutineScope = rememberCoroutineScope()
     var animal by remember { mutableStateOf<Animal?>(null) }
 
-    LaunchedEffect(Unit) {
+    LaunchedEffect(animalId) {
         coroutineScope.launch {
-            val animales = AnimalRepository.getAnimals()
-            animal = animales.find { it.id == animalId }
+            animal = AnimalRepository.getAnimals().find { it.id == animalId }
         }
     }
 
-    animal?.let {
-        DetalleAnimalContent(it)
-    } ?: run {
-        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            CircularProgressIndicator()
-        }
-    }
-}
-
-@Composable
-fun DetalleAnimalContent(animal: Animal) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
-        Text(animal.name, style = MaterialTheme.typography.headlineSmall)
-        Spacer(modifier = Modifier.height(8.dp))
-
-        Image(
-            painter = rememberAsyncImagePainter(animal.image),
-            contentDescription = animal.name,
+    animal?.let { animalData ->
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .height(200.dp)
-        )
+                .fillMaxSize()
+                .padding(16.dp)
+        ) {
+            Text(
+                text = animalData.name,
+                style = MaterialTheme.typography.headlineMedium
+            )
 
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(animal.description)
+            Spacer(modifier = Modifier.height(12.dp))
 
-        if (animal.gallery.isNotEmpty()) {
-            Spacer(modifier = Modifier.height(16.dp))
-            Text("Galería", style = MaterialTheme.typography.titleMedium)
+            Image(
+                painter = rememberAsyncImagePainter(animalData.image),
+                contentDescription = animalData.name,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(240.dp)
+                    .clip(RoundedCornerShape(12.dp))
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            Text(
+                text = animalData.description,
+                style = MaterialTheme.typography.bodyLarge
+            )
+
+            Spacer(modifier = Modifier.height(20.dp))
+            Text(
+                text = "Galería",
+                style = MaterialTheme.typography.titleMedium
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
             LazyRow {
-                items(animal.gallery) { imageUrl ->
+                items(animalData.gallery) { imageUrl ->
                     Image(
                         painter = rememberAsyncImagePainter(imageUrl),
-                        contentDescription = "Imagen de galería",
+                        contentDescription = null,
+                        contentScale = ContentScale.Crop,
                         modifier = Modifier
-                            .padding(8.dp)
                             .size(120.dp)
+                            .padding(end = 8.dp)
+                            .clip(RoundedCornerShape(8.dp))
                     )
                 }
             }
-        }
 
-        if (animal.facts.isNotEmpty()) {
-            Spacer(modifier = Modifier.height(16.dp))
-            Text("Hechos Interesantes", style = MaterialTheme.typography.titleMedium)
+            Spacer(modifier = Modifier.height(20.dp))
+            Text(
+                text = "Hechos Interesantes",
+                style = MaterialTheme.typography.titleMedium
+            )
+
             Spacer(modifier = Modifier.height(8.dp))
-            animal.facts.forEach { fact ->
-                Text("• $fact", modifier = Modifier.padding(bottom = 4.dp))
+
+            animalData.facts.forEach { fact ->
+                Text("• $fact", style = MaterialTheme.typography.bodyMedium)
             }
         }
     }
