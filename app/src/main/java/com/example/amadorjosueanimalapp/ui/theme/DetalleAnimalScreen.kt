@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
@@ -18,11 +17,10 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import com.example.amadorjosueanimalapp.model.Animal
 import com.example.amadorjosueanimalapp.model.Ambiente
+import com.example.amadorjosueanimalapp.model.Animal
 import com.example.amadorjosueanimalapp.repository.AnimalRepository
 import kotlinx.coroutines.launch
 
@@ -35,18 +33,16 @@ fun DetalleAnimalScreen(navController: NavController, animalId: String) {
     LaunchedEffect(Unit) {
         coroutineScope.launch {
             val animales = AnimalRepository.getAnimals()
-            val encontrado = animales.find { it.id == animalId }
-            animal = encontrado
+            animal = animales.find { it.id == animalId }
 
-            encontrado?.let {
-                val ambientes = AnimalRepository.getAmbientes()
-                ambiente = ambientes.find { it.id == encontrado.environment }
-            }
+            // cargar ambiente relacionado
+            val ambientes = AnimalRepository.getAmbientes()
+            ambiente = ambientes.find { it.id == animal?.environment }
         }
     }
 
     if (animal != null) {
-        DetalleAnimalContent(animal!!, ambiente)
+        DetalleAnimalContent(animal = animal!!, ambiente = ambiente)
     } else {
         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             CircularProgressIndicator()
@@ -58,7 +54,7 @@ fun DetalleAnimalScreen(navController: NavController, animalId: String) {
 fun DetalleAnimalContent(animal: Animal, ambiente: Ambiente?) {
     Column(modifier = Modifier.fillMaxSize()) {
 
-        // Hero Image
+        // Encabezado visual
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -74,7 +70,7 @@ fun DetalleAnimalContent(animal: Animal, ambiente: Ambiente?) {
                 modifier = Modifier
                     .fillMaxSize()
                     .background(
-                        brush = Brush.verticalGradient(
+                        Brush.verticalGradient(
                             listOf(Color.Transparent, Color.Black.copy(alpha = 0.6f))
                         )
                     )
@@ -91,7 +87,7 @@ fun DetalleAnimalContent(animal: Animal, ambiente: Ambiente?) {
 
         Spacer(modifier = Modifier.height(12.dp))
 
-        // Descripción
+        // Tarjeta de descripción
         Card(
             modifier = Modifier
                 .fillMaxWidth()
@@ -110,11 +106,7 @@ fun DetalleAnimalContent(animal: Animal, ambiente: Ambiente?) {
         Spacer(modifier = Modifier.height(16.dp))
 
         // Galería
-        Text(
-            "Galería",
-            style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.padding(horizontal = 16.dp)
-        )
+        Text("Galería", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(horizontal = 16.dp))
         LazyRow(modifier = Modifier.padding(start = 16.dp, top = 8.dp)) {
             items(animal.gallery) { imageUrl ->
                 Card(
@@ -137,11 +129,7 @@ fun DetalleAnimalContent(animal: Animal, ambiente: Ambiente?) {
         Spacer(modifier = Modifier.height(16.dp))
 
         // Hechos interesantes
-        Text(
-            "Hechos Interesantes",
-            style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.padding(horizontal = 16.dp)
-        )
+        Text("Hechos Interesantes", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(horizontal = 16.dp))
         Column(modifier = Modifier.padding(16.dp)) {
             animal.facts.forEach { fact ->
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -157,26 +145,36 @@ fun DetalleAnimalContent(animal: Animal, ambiente: Ambiente?) {
             }
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
-
-        // Ambiente
+        // Ambiente (si no es nulo)
         ambiente?.let {
+            Spacer(modifier = Modifier.height(16.dp))
+            // Sección del Ambiente sin descripción
             Text("Ambiente", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(horizontal = 16.dp))
-            Row(
+            Card(
                 modifier = Modifier
-                    .padding(horizontal = 16.dp, vertical = 8.dp)
-                    .fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                shape = RoundedCornerShape(16.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+                elevation = CardDefaults.cardElevation(4.dp)
             ) {
-                Image(
-                    painter = rememberAsyncImagePainter(it.image),
-                    contentDescription = it.name,
-                    modifier = Modifier
-                        .size(60.dp)
-                        .clip(RoundedCornerShape(10.dp))
-                )
-                Spacer(modifier = Modifier.width(12.dp))
-                Text(it.name, style = MaterialTheme.typography.bodyLarge)
+                Column {
+                    Image(
+                        painter = rememberAsyncImagePainter(ambiente!!.image),
+                        contentDescription = ambiente!!.name,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(160.dp)
+                            .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)),
+                        contentScale = ContentScale.Crop
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = ambiente!!.name,
+                        style = MaterialTheme.typography.titleMedium,
+                        modifier = Modifier.padding(start = 16.dp, bottom = 16.dp)
+                    )
+                }
             }
         }
     }
