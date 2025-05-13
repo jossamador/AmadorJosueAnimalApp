@@ -20,10 +20,10 @@ fun Navigation() {
             )
         }
         composable("ambienteDetalle/{ambienteId}") { backStackEntry ->
+            val ambienteId = backStackEntry.arguments?.getString("ambienteId") ?: ""
             DetalleAmbienteScreen(
                 navController,
-                ambienteId = backStackEntry.arguments?.getString("ambienteId") ?: ""
-            )
+                ambienteId)
         }
     }
 }
