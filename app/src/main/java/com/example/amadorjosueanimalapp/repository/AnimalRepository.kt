@@ -76,7 +76,11 @@ object AnimalRepository {
                 image = "https://images.pexels.com/photos/27067817/pexels-photo-27067817/free-photo-of-mullido-fotografia-de-animales-fotografia-de-vida-salvaje-suave.jpeg?auto=compress&cs=tinysrgb&w=800",
                 gallery = listOf(
                     "https://images.pexels.com/photos/11251669/pexels-photo-11251669.jpeg?auto=compress&cs=tinysrgb&w=800",
-                    "https://images.pexels.com/photos/26690472/pexels-photo-26690472/free-photo-of-carretera-naturaleza-rural-fotografia-de-animales.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    "https://images.pexels.com/photos/26690472/pexels-photo-26690472/free-photo-of-carretera-naturaleza-rural-fotografia-de-animales.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    "https://images.pexels.com/photos/27067815/pexels-photo-27067815/free-photo-of-nieve-nevar-invierno-jugando.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    "https://images.pexels.com/photos/26690635/pexels-photo-26690635/free-photo-of-zorro-artico-peludo-tumbado-en-la-nieve.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    "https://images.pexels.com/photos/26690042/pexels-photo-26690042/free-photo-of-naturaleza-hierba-cesped-prado.jpeg?auto=compress&cs=tinysrgb&w=800"
+
                 ),
                 facts = listOf("Su pelaje cambia según la estación.", "Gran cazador de roedores."),
                 environment = "tundra"
@@ -115,49 +119,57 @@ object AnimalRepository {
                 id = "selva",
                 name = "Selva",
                 description = "Ambiente tropical con gran biodiversidad.",
-                image = "https://images.pexels.com/photos/1928279/pexels-photo-1928279.jpeg?auto=compress&cs=tinysrgb&w=800"
+                image = "https://images.pexels.com/photos/1928279/pexels-photo-1928279.jpeg?auto=compress&cs=tinysrgb&w=800",
+                facts = listOf("Son ecosistemas húmedos con aguas estancadas", "Tiene lluvias frecuentes durante todo el año", "Presenta una gran variedad de árboles de gran altura")
             ),
             Ambiente(
                 id = "desierto",
                 name = "Desierto",
                 description = "Región árida con temperaturas extremas.",
-                image = "https://images.pexels.com/photos/30478414/pexels-photo-30478414.jpeg?auto=compress&cs=tinysrgb&w=800"
+                image = "https://images.pexels.com/photos/30478414/pexels-photo-30478414.jpeg?auto=compress&cs=tinysrgb&w=800",
+                facts = listOf("Las temperaturas pueden superar los 50°C durante el día", "Tiene una vegetación escasa y especializada", "La fauna está adaptada a sobrevivir con muy poca agua")
             ),
             Ambiente(
                 id = "oceano",
                 name = "Océano",
                 description = "Inmensa masa de agua salada que cubre el 70% del planeta.",
-                image = "https://images.pexels.com/photos/31980247/pexels-photo-31980247/free-photo-of-impresionante-puesta-de-sol-sobre-el-horizonte-oceanico-de-melbourne.jpeg?auto=compress&cs=tinysrgb&w=800"
+                image = "https://images.pexels.com/photos/31980247/pexels-photo-31980247/free-photo-of-impresionante-puesta-de-sol-sobre-el-horizonte-oceanico-de-melbourne.jpeg?auto=compress&cs=tinysrgb&w=800",
+                facts = listOf("Ocupa aproximadamente el 70% de la superficie terrestre","Alberga una biodiversidad inmensa en diferentes profundidades","Regula el clima global mediante corrientes oceánicas")
             ),
             Ambiente(
                 id = "montana",
                 name = "Montaña",
                 description = "Zona elevada con clima frío y aire delgado.",
-                image = "https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=800"
+                image = "https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=800",
+                facts = listOf("El clima es más frío conforme aumenta la altitud","Son fuentes de agua dulce por la presencia de glaciares","La vida animal está adaptada a terrenos rocosos y aire delgado")
             ),
             Ambiente(
                 id = "polo",
                 name = "Polo",
                 description = "Ambiente helado, hogar de especies adaptadas al frío extremo.",
-                image = "https://images.pexels.com/photos/16144193/pexels-photo-16144193/free-photo-of-resfriado-frio-glaciar-nieve.jpeg?auto=compress&cs=tinysrgb&w=800"
+                image = "https://images.pexels.com/photos/16144193/pexels-photo-16144193/free-photo-of-resfriado-frio-glaciar-nieve.jpeg?auto=compress&cs=tinysrgb&w=800",
+                facts = listOf("Las temperaturas pueden llegar a -60°C en invierno","La luz solar puede desaparecer por meses durante el año","Es hogar de especies como pingüinos y osos polares")
             ),
             Ambiente(
                 id = "tundra",
                 name = "Tundra",
                 description = "Bioma frío con vegetación baja y suelos helados.",
-                image = "https://images.pexels.com/photos/2563282/pexels-photo-2563282.jpeg?auto=compress&cs=tinysrgb&w=800"
+                image = "https://images.pexels.com/photos/2563282/pexels-photo-2563282.jpeg?auto=compress&cs=tinysrgb&w=800",
+                facts = listOf("El suelo está congelado la mayor parte del año (permafrost)","Hay una corta temporada de crecimiento en verano","La vegetación es baja: musgos, líquenes y arbustos")
             ),
             Ambiente(
                 id = "pantano",
                 name = "Pantano",
                 description = "Zona húmeda con aguas estancadas y vegetación densa.",
-                image = "https://images.pexels.com/photos/31996011/pexels-photo-31996011.jpeg?auto=compress&cs=tinysrgb&w=800"
+                image = "https://images.pexels.com/photos/31996011/pexels-photo-31996011.jpeg?auto=compress&cs=tinysrgb&w=800",
+                facts = listOf("Son ecosistemas húmedos con aguas estancadas","Albergan gran cantidad de insectos, aves y reptiles","Son zonas naturales de filtración de agua")
             ),
             Ambiente(
                 id = "bosque",
                 name = "Bosque",
                 description = "Región densa con árboles, hogar de muchas especies.",
-                image = "https://images.pexels.com/photos/338936/pexels-photo-338936.jpeg?auto=compress&cs=tinysrgb&w=800"
+                image = "https://images.pexels.com/photos/338936/pexels-photo-338936.jpeg?auto=compress&cs=tinysrgb&w=800",
+                facts = listOf("Regulan el oxígeno y el dióxido de carbono en la atmósfera","Son hábitats críticos para mamíferos, aves e insectos","Presentan estaciones bien marcadas en bosques templados")
             )
         )
     }
