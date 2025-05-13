@@ -1,0 +1,28 @@
+# Archivos de configuración de IntelliJ/Android Studio
+.idea/
+
+# Archivos generados por compilación
+.gradle/
+build/
+.cxx/
+.externalNativeBuild/
+
+# Archivos de entorno local
+local.properties
+*.iml
+.DS_Store
+captures/
+
+# Archivos de Gradle Wrapper (opcional ignorarlos si no los compartes)
+gradlew
+gradlew.bat
+
+# Archivos temporales de Kotlin
+.kotlin/
+
+# Tests locales (no siempre necesarios)
+app/src/androidTest/
+app/src/test/
+
+# Ignora otros .gitignore redundantes
+app/.gitignore
