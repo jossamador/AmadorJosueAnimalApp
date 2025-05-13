@@ -26,6 +26,7 @@ import com.example.amadorjosueanimalapp.model.Animal
 import com.example.amadorjosueanimalapp.model.Ambiente
 import com.example.amadorjosueanimalapp.repository.AnimalRepository
 import kotlinx.coroutines.launch
+import androidx.compose.material.icons.filled.Info
 
 @Composable
 fun DetalleAmbienteScreen(navController: NavController, ambienteId: String) {
@@ -134,5 +135,38 @@ fun DetalleAmbienteContent(ambiente: Ambiente, animales: List<Animal>) {
                 }
             }
         }
+
+        // Hechos interesantes del ambiente
+        // Separador visual
+        Divider(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 12.dp),
+            color = Color.LightGray,
+            thickness = 1.dp
+        )
+
+        // Hechos interesantes del ambiente
+        Text(
+            "Hechos del ambiente",
+            style = MaterialTheme.typography.titleMedium,
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+        )
+
+        Column(modifier = Modifier.padding(horizontal = 16.dp)) {
+            ambiente.facts.forEach { fact ->
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        imageVector = Icons.Default.Info,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(fact)
+                }
+                Spacer(modifier = Modifier.height(15.dp))
+            }
+        }
+
     }
 }
